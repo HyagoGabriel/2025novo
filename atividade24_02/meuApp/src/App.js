@@ -1,52 +1,18 @@
-import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import Login from "./screens/Login";
 import Cadastro from "./screens/Cadastro";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator} from '@react-navigation/stack'
 
+const Stack = createStackNavigator();
+
+  
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Cadastro />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={Login}/>
+        <Stack.Screen name="Cadastro" component={Cadastro}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  box1: {
-    width: 100,
-    height: 100,
-    backgroundColor: "red",
-  },
-  box2: {
-    width: 100,
-    height: 100,
-    backgroundColor: "yellow",
-  },
-  box3: {
-    width: 100,
-    height: 100,
-    backgroundColor: "green",
-  },
-  box4: {
-    width: 100,
-    height: 100,
-    backgroundColor: "blue",
-  },
-  row: {
-    flexDirection: "row",
-  },
-  text: {
-    fontSize: 25,
-    fontWeight: "bold",
-  },
-  input: {
-    borderColor: "black",
-    borderWidth: 1,
-    width: 200,
-    marginVertical: 20,
-  },
-});

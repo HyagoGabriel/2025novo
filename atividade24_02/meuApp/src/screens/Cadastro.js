@@ -6,10 +6,11 @@ import {
   TouchableOpacity,
   Alert,
   StyleSheet,
+  Button,
 } from "react-native";
 import api from "../axios/axios";
 
-export default function Cadastro() {
+export default function Cadastro({navigation}) {
   const [user, setUser] = useState({
     name: "",
     cpf: "",
@@ -33,6 +34,7 @@ export default function Cadastro() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Faça Cadastro</Text>
+       <Button title="Voltar para Login" onPress={()=> navigation.navigate ("Login")}/>
       <TextInput
         placeholder="Nome"
         value={user.name}
